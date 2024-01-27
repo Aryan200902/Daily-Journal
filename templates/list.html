@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block title %}All Todo's{% endblock %}
+{% block content %}
+<div class="text-center mt-3">
+  <button class="btn btn-danger" onclick="deleteAll()">Delete All</button>
+</div>
+{% for eachtodo in alltodos %}
+
+<div class="row">
+    <div class="col-md-6" style="margin:0 auto;">
+        <div class="card container-fluid" style="margin-top: 1rem;">
+            <div class="card-body">
+              <h5 class="card-title">Title : {{eachtodo.title}}</h5>
+              <p class="card-text">Description : {{eachtodo.description}}</p>
+              <p class="card-text">Created at : {{eachtodo.created_at}}</p>
+              <a href="/delete/{{eachtodo.id}}" class="btn btn-danger">Delete</a>
+              <a href="/edit/{{eachtodo.id}}" class="btn btn-warning">Edit</a>
+              
+
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endfor %}
+<script>
+  function deleteAll() {
+      if (confirm("Are you sure you want to delete all records?")) {
+          window.location.href = "{% url 'delete_all' %}";
+      }
+  }
+</script>
+{% endblock %}
