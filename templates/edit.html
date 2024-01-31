@@ -1,9 +1,10 @@
 {% extends 'index.html' %}
 {% block title %}Edit Data{% endblock %}
 {% block content %}
+
 <div class="row">
     <div class="col-md-6" style="margin: 0 auto;">
-      <form action="{% url 'update' id=id %}" method="GET">
+      <form action="{% url 'update' id=id %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
           <label for="title">Title</label>
