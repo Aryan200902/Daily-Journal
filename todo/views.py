@@ -111,7 +111,6 @@ def create_user(request):
 
         # Create the user
         user = User.objects.create_user(username=username, email=email, password=password1)
-        user.is_superuser = True
         user.save()
         messages.success(request, "User created successfully.")
         return redirect('user_login')  # Redirect to login page after successful user creation
