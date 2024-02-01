@@ -114,7 +114,7 @@ def create_user(request):
         user.is_superuser = True
         user.save()
         messages.success(request, "User created successfully.")
-        return redirect('login')  # Redirect to login page after successful user creation
+        return redirect('user_login')  # Redirect to login page after successful user creation
 
     return render(request, 'signup.html')  # Render the template for user creation form
         
